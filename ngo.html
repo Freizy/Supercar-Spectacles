@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheel of Hope - SUPERCAR SPECTACLE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="logo.png" alt="SUPERCAR SPECTACLE Logo" class="logo-image">
+                    <img src="logo text.png" alt="SUPERCAR SPECTACLE Logo" class="logo-text-image">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link">News</a>
+                </li>
+                <li class="nav-item">
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link register-btn" onclick="openShowcaseModal()">Register Now</button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- NGO Hero Section -->
+    <section class="ngo-hero">
+        <div class="hero-background">
+            <img src="selected images/wheelchair.jpg" alt="Wheel of Hope Hero" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Wheel of Hope</h1>
+                <p class="hero-subtitle">Empowering Lives, Breaking Barriers, Building Inclusive Communities</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision-section">
+        <div class="container">
+            <div class="mission-vision-content">
+                <div class="mission-box">
+                    <h2><i class="fas fa-bullseye"></i> Our Mission</h2>
+                    <p>To empower and advocate for people who need and use wheelchairs, providing a platform that promotes inclusion, accessibility, and equal opportunities in society. We are committed to breaking barriers and ensuring that individuals living with mobility challenges are not left behind.</p>
+                </div>
+                <div class="vision-box">
+                    <h2><i class="fas fa-eye"></i> Our Vision</h2>
+                    <p>A world where people with disabilities have equal access to opportunities, resources, and experiences. We envision a society that recognizes and celebrates the strength, resilience, and limitless potential of every individual, regardless of their mobility challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Programs Section -->
+    <section class="programs-section">
+        <div class="container">
+            <h2 class="section-title">Our Core Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Advocacy & Awareness</h3>
+                    <p>We conduct comprehensive awareness campaigns to educate society about the challenges faced by people with disabilities and advocate for policy changes that promote inclusion and accessibility.</p>
+                    <ul class="program-features">
+                        <li>Public awareness campaigns</li>
+                        <li>Policy advocacy</li>
+                        <li>Educational workshops</li>
+                        <li>Media engagement</li>
+                    </ul>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Skills Training & Education</h3>
+                    <p>We provide comprehensive skills training and educational programs designed to enhance independence, employability, and personal growth for individuals with mobility challenges.</p>
+                    <ul class="program-features">
+                        <li>Vocational training</li>
+                        <li>Digital literacy programs</li>
+                        <li>Life skills development</li>
+                        <li>Educational support</li>
+                    </ul>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Building</h3>
+                    <p>We create supportive communities where individuals with disabilities can connect, share experiences, and build meaningful relationships that foster confidence and independence.</p>
+                    <ul class="program-features">
+                        <li>Support groups</li>
+                        <li>Social events</li>
+                        <li>Peer mentoring</li>
+                        <li>Community outreach</li>
+                    </ul>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Recreational Activities</h3>
+                    <p>We organize inclusive recreational events and activities that promote physical well-being, social interaction, and the joy of living an active and fulfilling life.</p>
+                    <ul class="program-features">
+                        <li>Adaptive sports</li>
+                        <li>Cultural events</li>
+                        <li>Outdoor activities</li>
+                        <li>Entertainment programs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section class="partnership-section">
+        <div class="container">
+            <div class="partnership-content">
+                <div class="partnership-text">
+                    <h2>Our Partnership with Supercar Spectacle</h2>
+                    <p class="partnership-intro">By connecting our mission with the excitement of the Supercar Spectacle, we aim not only to entertain but also to shine a light on the strength, resilience, and limitless potential of people with disabilities.</p>
+                    <div class="partnership-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <h4>Visibility & Awareness</h4>
+                                <p>Using the platform of Supercar Spectacle to raise awareness about accessibility and inclusion in major events.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-handshake"></i>
+                            <div>
+                                <h4>Community Integration</h4>
+                                <p>Creating opportunities for people with disabilities to participate in and enjoy premium entertainment experiences.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <h4>Inspiration & Empowerment</h4>
+                                <p>Demonstrating that being in a wheelchair does not limit one's ability to live a fulfilling and impactful life.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="partnership-image">
+                    <img src="selected images/6.JPG" alt="Wheel of Hope at Supercar Spectacle" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section">
+        <div class="container">
+            <h2 class="section-title">Our Impact</h2>
+            <div class="impact-stats">
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Individuals Empowered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Awareness Campaigns</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Skills Training Graduates</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Community Events</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section class="get-involved-section">
+        <div class="container">
+            <div class="get-involved-content">
+                <h2>Get Involved</h2>
+                <p>Join us in making a difference. There are many ways you can support our mission and help create a more inclusive society.</p>
+                <div class="involvement-options">
+                    <div class="involvement-card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Volunteer</h3>
+                        <p>Share your time and skills to support our programs and events.</p>
+                        <a href="#" class="btn btn-secondary">Join Our Team</a>
+                    </div>
+                    <div class="involvement-card">
+                        <i class="fas fa-donate"></i>
+                        <h3>Donate</h3>
+                        <p>Your financial support helps us expand our programs and reach more people.</p>
+                        <a href="#" class="btn btn-secondary">Make a Donation</a>
+                    </div>
+                    <div class="involvement-card">
+                        <i class="fas fa-share-alt"></i>
+                        <h3>Spread Awareness</h3>
+                        <p>Help us reach more people by sharing our mission and stories.</p>
+                        <a href="#" class="btn btn-secondary">Share Our Story</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="ngo-contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Contact Wheel of Hope</h2>
+                <p>Get in touch with us to learn more about our programs, volunteer opportunities, or how you can support our mission.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@wheelofhope.org</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+233 55 870 2163</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Accra, Ghana</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo-link">
+                            <img src="logo.png" alt="SUPERCAR SPECTACLE Logo" class="logo-image">
+                            <img src="logo text.png" alt="SUPERCAR SPECTACLE Logo" class="logo-text-image">
+                        </a>
+                    </div>
+                    <p>Ghana's premier automotive showcase</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone"></i> 0558702163</p>
+                    <p><i class="fas fa-envelope"></i> supercarspectacle1@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SUPERCAR SPECTACLE. All rights reserved. | Designed by SARGENT</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Showcase Registration Modal -->
+    <div id="showcaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Register Your Supercar</h2>
+            <form id="showcaseForm">
+                <div class="form-group">
+                    <label for="showcaseName">Full Name:</label>
+                    <input type="text" id="showcaseName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="carMake">Car Make:</label>
+                    <input type="text" id="carMake" name="make" placeholder="e.g. Ferrari" required>
+                </div>
+                <div class="form-group">
+                    <label for="carModel">Car Model:</label>
+                    <input type="text" id="carModel" name="model" placeholder="e.g. 488 Pista" required>
+                </div>
+                <div class="form-group">
+                    <label for="showcaseContact">Contact Number:</label>
+                    <input type="tel" id="showcaseContact" name="contact" required>
+                </div>
+                <div class="form-group">
+                    <label for="plateNumber">Plate Number:</label>
+                    <input type="text" id="plateNumber" name="plateNumber" placeholder="e.g. GT-1234-AB" required>
+                </div>
+                <div class="form-group">
+                    <label for="showcaseDescription">Brief Description:</label>
+                    <textarea id="showcaseDescription" name="description" rows="4" placeholder="Tell us about your car: specs, mods, unique features" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

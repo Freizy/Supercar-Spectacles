@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPERCAR SPECTACLE - News</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="logo.png" alt="SUPERCAR SPECTACLE Logo" class="logo-image">
+                    <img src="logo text.png" alt="SUPERCAR SPECTACLE Logo" class="logo-text-image">
+                </a>
+            </div>
+                            <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="news.html" class="nav-link active">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link register-btn" onclick="openShowcaseModal()">Register Now</button>
+                    </li>
+                </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- News Header -->
+    <section class="news-header">
+        <div class="container">
+            <h1>Latest News & Updates</h1>
+            <p>Stay updated with the latest supercar news and event announcements</p>
+        </div>
+    </section>
+
+    <!-- News Categories -->
+    <section class="news-categories">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All News</button>
+                <button class="category-tab" data-category="event">Event Updates</button>
+                <button class="category-tab" data-category="supercars">Supercar News</button>
+                <button class="category-tab" data-category="technology">Technology</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Grid -->
+    <section class="news-grid">
+        <div class="container">
+            <div class="news-container">
+                <!-- Featured News -->
+                <article class="news-item featured" data-category="event">
+                    <div class="news-image">
+                        <!-- News image will be added here -->
+                        <div class="news-overlay">
+                            <span class="news-category">Event Update</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="fas fa-calendar"></i> March 1, 2025</span>
+                            <span class="news-author"><i class="fas fa-user"></i> Event Team</span>
+                        </div>
+                        <h2>SUPERCAR SPECTACLE 2025: Complete Lineup Revealed</h2>
+                        <p>We're excited to announce the complete lineup for SUPERCAR SPECTACLE 2025! This year's event will feature over 50 of the world's most exclusive supercars, including several African premieres and exclusive debuts.</p>
+                        <div class="news-tags">
+                            <span class="tag">Event</span>
+                            <span class="tag">Lineup</span>
+                            <span class="tag">Premiere</span>
+                        </div>
+                        <button class="btn btn-read-more" onclick="readMore(this)">Read More</button>
+                    </div>
+                </article>
+
+                <!-- Regular News Items -->
+                <article class="news-item" data-category="supercars">
+                    <div class="news-image">
+                        <!-- News image will be added here -->
+                        <div class="news-overlay">
+                            <span class="news-category">Supercar News</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="fas fa-calendar"></i> February 28, 2025</span>
+                            <span class="news-author"><i class="fas fa-user"></i> Auto News</span>
+                        </div>
+                        <h3>New McLaren P1 Successor Spotted Testing</h3>
+                        <p>Spy photographers have captured the highly anticipated McLaren P1 successor undergoing testing. The new hypercar is expected to feature hybrid technology and unprecedented performance figures.</p>
+                        <div class="news-tags">
+                            <span class="tag">McLaren</span>
+                            <span class="tag">Hypercar</span>
+                        </div>
+                        <button class="btn btn-read-more" onclick="readMore(this)">Read More</button>
+                    </div>
+                </article>
+
+                <article class="news-item" data-category="technology">
+                    <div class="news-image">
+                        <div class="news-overlay">
+                            <span class="news-category">Technology</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="fas fa-calendar"></i> February 27, 2025</span>
+                            <span class="news-author"><i class="fas fa-user"></i> Tech News</span>
+                        </div>
+                        <h3>Electric Supercars: The Future of Performance</h3>
+                        <p>Electric supercars are revolutionizing the automotive industry with instant torque and incredible acceleration. We explore the latest developments in electric performance vehicles.</p>
+                        <div class="news-tags">
+                            <span class="tag">Electric</span>
+                            <span class="tag">Technology</span>
+                        </div>
+                        <button class="btn btn-read-more" onclick="readMore(this)">Read More</button>
+                    </div>
+                </article>
+
+                <article class="news-item" data-category="event">
+                    <div class="news-image">
+                        <div class="news-overlay">
+                            <span class="news-category">Event Update</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="fas fa-calendar"></i> February 26, 2025</span>
+                            <span class="news-author"><i class="fas fa-user"></i> Event Team</span>
+                        </div>
+                        <h3>VIP Experience Packages Now Available</h3>
+                        <p>Exclusive VIP packages for SUPERCAR SPECTACLE 2024 are now available for purchase. Experience the event like never before with premium access and exclusive benefits.</p>
+                        <div class="news-tags">
+                            <span class="tag">VIP</span>
+                            <span class="tag">Tickets</span>
+                        </div>
+                        <button class="btn btn-read-more" onclick="readMore(this)">Read More</button>
+                    </div>
+                </article>
+
+                <article class="news-item" data-category="supercars">
+                    <div class="news-image">
+                        <div class="news-overlay">
+                            <span class="news-category">Supercar News</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="fas fa-calendar"></i> February 25, 2025</span>
+                            <span class="news-author"><i class="fas fa-user"></i> Auto News</span>
+                        </div>
+                        <h3>Bugatti Chiron Successor: What We Know So Far</h3>
+                        <p>Bugatti is working on the successor to the legendary Chiron. Here's everything we know about the upcoming hypercar that will push the boundaries of automotive engineering.</p>
+                        <div class="news-tags">
+                            <span class="tag">Bugatti</span>
+                            <span class="tag">Chiron</span>
+                        </div>
+                        <button class="btn btn-read-more" onclick="readMore(this)">Read More</button>
+                    </div>
+                </article>
+
+                <article class="news-item" data-category="technology">
+                    <div class="news-image">
+                        <div class="news-overlay">
+                            <span class="news-category">Technology</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="fas fa-calendar"></i> February 24, 2025</span>
+                            <span class="news-author"><i class="fas fa-user"></i> Tech News</span>
+                        </div>
+                        <h3>Autonomous Supercars: The Next Frontier</h3>
+                        <p>Autonomous driving technology is making its way into supercars. We examine how self-driving capabilities are being integrated into high-performance vehicles.</p>
+                        <div class="news-tags">
+                            <span class="tag">Autonomous</span>
+                            <span class="tag">Technology</span>
+                        </div>
+                        <button class="btn btn-read-more" onclick="readMore(this)">Read More</button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="btn btn-load-more" onclick="loadMoreNews()">Load More News</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for the latest news and exclusive updates about SUPERCAR SPECTACLE</p>
+                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo-link">
+                                                <img src="logo.png" alt="SUPERCAR SPECTACLE Logo" class="logo-image">
+                    <img src="logo text.png" alt="SUPERCAR SPECTACLE Logo" class="logo-text-image">
+                        </a>
+                    </div>
+                    <p>Ghana's premier automotive showcase</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone"></i> 0558702163</p>
+                    <p><i class="fas fa-envelope"></i> supercarspectacle1@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SUPERCAR SPECTACLE. All rights reserved. | Designed by SARGENT</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Showcase Registration Modal -->
+    <div id="showcaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Register Your Supercar</h2>
+            <form id="showcaseForm">
+                <div class="form-group">
+                    <label for="showcaseName">Full Name:</label>
+                    <input type="text" id="showcaseName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="carMake">Car Make:</label>
+                    <input type="text" id="carMake" name="make" placeholder="e.g. Ferrari" required>
+                </div>
+                <div class="form-group">
+                    <label for="carModel">Car Model:</label>
+                    <input type="text" id="carModel" name="model" placeholder="e.g. 488 Pista" required>
+                </div>
+                <div class="form-group">
+                    <label for="showcaseContact">Contact Number:</label>
+                    <input type="tel" id="showcaseContact" name="contact" required>
+                </div>
+                <div class="form-group">
+                    <label for="plateNumber">Plate Number:</label>
+                    <input type="text" id="plateNumber" name="plateNumber" placeholder="e.g. GT-1234-AB" required>
+                </div>
+                <div class="form-group">
+                    <label for="showcaseDescription">Brief Description:</label>
+                    <textarea id="showcaseDescription" name="description" rows="4" placeholder="Tell us about your car: specs, mods, unique features" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

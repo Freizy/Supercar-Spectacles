@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Testing Interface - Supercar Spectacles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .test-section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border: 1px solid #e1e1e1;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+
+        .test-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d, #495057);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #dc3545, #e74c3c);
+        }
+
+        .response-area {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            min-height: 100px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .response-area.success {
+            border-left-color: #28a745;
+            background: #d4edda;
+        }
+
+        .response-area.error {
+            border-left-color: #dc3545;
+            background: #f8d7da;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .status-success { background: #28a745; }
+        .status-error { background: #dc3545; }
+        .status-warning { background: #ffc107; }
+        .status-info { background: #17a2b8; }
+
+        .quick-actions {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .quick-actions h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .quick-actions .btn {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚗 API Testing Interface</h1>
+            <p>Test all Supercar Spectacles backend APIs</p>
+        </div>
+
+        <div class="content">
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <button class="btn" onclick="testAllAPIs()">Test All APIs</button>
+                <button class="btn btn-secondary" onclick="clearAllResponses()">Clear All</button>
+                <button class="btn btn-success" onclick="testDatabaseConnection()">Test Database</button>
+                <button class="btn btn-danger" onclick="resetTestData()">Reset Test Data</button>
+            </div>
+
+            <!-- Newsletter API Test -->
+            <div class="test-section">
+                <h2><span class="status-indicator status-info"></span>Newsletter API</h2>
+                <div class="grid">
+                    <div>
+                        <h4>Subscribe to Newsletter</h4>
+                        <div class="form-group">
+                            <label>Email:</label>
+                            <input type="email" id="newsletter-email" class="form-control" value="test@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Name:</label>
+                            <input type="text" id="newsletter-name" class="form-control" value="Test User">
+                        </div>
+                        <button class="btn" onclick="testNewsletterSubscribe()">Subscribe</button>
+                        <button class="btn btn-secondary" onclick="testNewsletterUnsubscribe()">Unsubscribe</button>
+                        <button class="btn btn-success" onclick="testNewsletterStats()">Get Stats</button>
+                    </div>
+                    <div>
+                        <div id="newsletter-response" class="response-area">Click a button to test...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Showcase API Test -->
+            <div class="test-section">
+                <h2><span class="status-indicator status-info"></span>Showcase Registration API</h2>
+                <div class="grid">
+                    <div>
+                        <h4>Submit Showcase Registration</h4>
+                        <div class="form-group">
+                            <label>Owner Name:</label>
+                            <input type="text" id="showcase-name" class="form-control" value="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Car Make:</label>
+                            <input type="text" id="showcase-make" class="form-control" value="Ferrari">
+                        </div>
+                        <div class="form-group">
+                            <label>Car Model:</label>
+                            <input type="text" id="showcase-model" class="form-control" value="488 Pista">
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Number:</label>
+                            <input type="tel" id="showcase-contact" class="form-control" value="+233123456789">
+                        </div>
+                        <div class="form-group">
+                            <label>Plate Number:</label>
+                            <input type="text" id="showcase-plate" class="form-control" value="GT-TEST-123">
+                        </div>
+                        <div class="form-group">
+                            <label>Description:</label>
+                            <textarea id="showcase-description" class="form-control">Beautiful Ferrari with custom modifications and racing setup.</textarea>
+                        </div>
+                        <button class="btn" onclick="testShowcaseSubmit()">Submit Registration</button>
+                        <button class="btn btn-success" onclick="testShowcaseStats()">Get Stats</button>
+                    </div>
+                    <div>
+                        <div id="showcase-response" class="response-area">Click a button to test...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News API Test -->
+            <div class="test-section">
+                <h2><span class="status-indicator status-info"></span>News API</h2>
+                <div class="grid">
+                    <div>
+                        <h4>News Management</h4>
+                        <div class="form-group">
+                            <label>Category:</label>
+                            <select id="news-category" class="form-control">
+                                <option value="all">All Categories</option>
+                                <option value="event">Event</option>
+                                <option value="supercars">Supercars</option>
+                                <option value="technology">Technology</option>
+                                <option value="general">General</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Page:</label>
+                            <input type="number" id="news-page" class="form-control" value="1" min="1">
+                        </div>
+                        <button class="btn" onclick="testNewsList()">Get News List</button>
+                        <button class="btn btn-success" onclick="testNewsFeatured()">Get Featured</button>
+                    </div>
+                    <div>
+                        <div id="news-response" class="response-area">Click a button to test...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cars API Test -->
+            <div class="test-section">
+                <h2><span class="status-indicator status-info"></span>Cars API</h2>
+                <div class="grid">
+                    <div>
+                        <h4>Car Listings & Inquiries</h4>
+                        <div class="form-group">
+                            <label>Brand Filter:</label>
+                            <select id="cars-brand" class="form-control">
+                                <option value="">All Brands</option>
+                                <option value="ferrari">Ferrari</option>
+                                <option value="lamborghini">Lamborghini</option>
+                                <option value="mclaren">McLaren</option>
+                                <option value="porsche">Porsche</option>
+                                <option value="bugatti">Bugatti</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Page:</label>
+                            <input type="number" id="cars-page" class="form-control" value="1" min="1">
+                        </div>
+                        <button class="btn" onclick="testCarsList()">Get Car Listings</button>
+                        <button class="btn btn-success" onclick="testCarsStats()">Get Stats</button>
+                        <button class="btn btn-secondary" onclick="testCarInquiry()">Test Inquiry</button>
+                    </div>
+                    <div>
+                        <div id="cars-response" class="response-area">Click a button to test...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery API Test -->
+            <div class="test-section">
+                <h2><span class="status-indicator status-info"></span>Gallery API</h2>
+                <div class="grid">
+                    <div>
+                        <h4>Gallery Management</h4>
+                        <div class="form-group">
+                            <label>Category:</label>
+                            <select id="gallery-category" class="form-control">
+                                <option value="all">All Categories</option>
+                                <option value="cars">Cars</option>
+                                <option value="events">Events</option>
+                                <option value="people">People</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Page:</label>
+                            <input type="number" id="gallery-page" class="form-control" value="1" min="1">
+                        </div>
+                        <button class="btn" onclick="testGalleryList()">Get Gallery Images</button>
+                        <button class="btn btn-success" onclick="testGalleryFeatured()">Get Featured</button>
+                        <button class="btn btn-secondary" onclick="testGalleryCategories()">Get Categories</button>
+                    </div>
+                    <div>
+                        <div id="gallery-response" class="response-area">Click a button to test...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact API Test -->
+            <div class="test-section">
+                <h2><span class="status-indicator status-info"></span>Contact API</h2>
+                <div class="grid">
+                    <div>
+                        <h4>Contact Form</h4>
+                        <div class="form-group">
+                            <label>Name:</label>
+                            <input type="text" id="contact-name" class="form-control" value="Test User">
+                        </div>
+                        <div class="form-group">
+                            <label>Email:</label>
+                            <input type="email" id="contact-email" class="form-control" value="test@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone:</label>
+                            <input type="tel" id="contact-phone" class="form-control" value="+233123456789">
+                        </div>
+                        <div class="form-group">
+                            <label>Subject:</label>
+                            <input type="text" id="contact-subject" class="form-control" value="Test Subject">
+                        </div>
+                        <div class="form-group">
+                            <label>Message:</label>
+                            <textarea id="contact-message" class="form-control">This is a test message from the API testing interface.</textarea>
+                        </div>
+                        <button class="btn" onclick="testContactSubmit()">Submit Contact Form</button>
+                    </div>
+                    <div>
+                        <div id="contact-response" class="response-area">Click a button to test...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Utility function to make API calls
+        async function makeAPICall(url, method = 'GET', data = null) {
+            try {
+                const options = {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                };
+
+                if (data && method !== 'GET') {
+                    options.body = JSON.stringify(data);
+                }
+
+                const response = await fetch(url, options);
+                const result = await response.json();
+                
+                return {
+                    success: response.ok,
+                    status: response.status,
+                    data: result
+                };
+            } catch (error) {
+                return {
+                    success: false,
+                    error: error.message
+                };
+            }
+        }
+
+        // Display response in a response area
+        function displayResponse(elementId, response) {
+            const element = document.getElementById(elementId);
+            const responseText = JSON.stringify(response, null, 2);
+            
+            element.textContent = responseText;
+            element.className = 'response-area ' + (response.success ? 'success' : 'error');
+        }
+
+        // Newsletter API Tests
+        async function testNewsletterSubscribe() {
+            const data = {
+                email: document.getElementById('newsletter-email').value,
+                name: document.getElementById('newsletter-name').value
+            };
+            
+            const response = await makeAPICall('../api/newsletter.php?action=subscribe', 'POST', data);
+            displayResponse('newsletter-response', response);
+        }
+
+        async function testNewsletterUnsubscribe() {
+            const data = {
+                email: document.getElementById('newsletter-email').value
+            };
+            
+            const response = await makeAPICall('../api/newsletter.php?action=unsubscribe', 'POST', data);
+            displayResponse('newsletter-response', response);
+        }
+
+        async function testNewsletterStats() {
+            const response = await makeAPICall('../api/newsletter.php?action=stats');
+            displayResponse('newsletter-response', response);
+        }
+
+        // Showcase API Tests
+        async function testShowcaseSubmit() {
+            const data = {
+                owner_name: document.getElementById('showcase-name').value,
+                car_make: document.getElementById('showcase-make').value,
+                car_model: document.getElementById('showcase-model').value,
+                contact_number: document.getElementById('showcase-contact').value,
+                plate_number: document.getElementById('showcase-plate').value,
+                description: document.getElementById('showcase-description').value
+            };
+            
+            const response = await makeAPICall('../api/showcase.php?action=submit', 'POST', data);
+            displayResponse('showcase-response', response);
+        }
+
+        async function testShowcaseStats() {
+            const response = await makeAPICall('../api/showcase.php?action=stats');
+            displayResponse('showcase-response', response);
+        }
+
+        // News API Tests
+        async function testNewsList() {
+            const category = document.getElementById('news-category').value;
+            const page = document.getElementById('news-page').value;
+            const url = `../api/news.php?action=list&category=${category}&page=${page}`;
+            
+            const response = await makeAPICall(url);
+            displayResponse('news-response', response);
+        }
+
+        async function testNewsFeatured() {
+            const response = await makeAPICall('../api/news.php?action=featured');
+            displayResponse('news-response', response);
+        }
+
+        // Cars API Tests
+        async function testCarsList() {
+            const brand = document.getElementById('cars-brand').value;
+            const page = document.getElementById('cars-page').value;
+            let url = `../api/cars.php?action=list&page=${page}`;
+            if (brand) url += `&brand=${brand}`;
+            
+            const response = await makeAPICall(url);
+            displayResponse('cars-response', response);
+        }
+
+        async function testCarsStats() {
+            const response = await makeAPICall('../api/cars.php?action=stats');
+            displayResponse('cars-response', response);
+        }
+
+        async function testCarInquiry() {
+            const data = {
+                car_id: 1,
+                name: 'Test User',
+                email: 'test@example.com',
+                phone: '+233123456789',
+                message: 'I am interested in this car. Please contact me.'
+            };
+            
+            const response = await makeAPICall('../api/cars.php?action=inquiry', 'POST', data);
+            displayResponse('cars-response', response);
+        }
+
+        // Gallery API Tests
+        async function testGalleryList() {
+            const category = document.getElementById('gallery-category').value;
+            const page = document.getElementById('gallery-page').value;
+            const url = `../api/gallery.php?action=list&category=${category}&page=${page}`;
+            
+            const response = await makeAPICall(url);
+            displayResponse('gallery-response', response);
+        }
+
+        async function testGalleryFeatured() {
+            const response = await makeAPICall('../api/gallery.php?action=featured');
+            displayResponse('gallery-response', response);
+        }
+
+        async function testGalleryCategories() {
+            const response = await makeAPICall('../api/gallery.php?action=categories');
+            displayResponse('gallery-response', response);
+        }
+
+        // Contact API Tests
+        async function testContactSubmit() {
+            const data = {
+                name: document.getElementById('contact-name').value,
+                email: document.getElementById('contact-email').value,
+                phone: document.getElementById('contact-phone').value,
+                subject: document.getElementById('contact-subject').value,
+                message: document.getElementById('contact-message').value
+            };
+            
+            const response = await makeAPICall('../api/contact.php?action=submit', 'POST', data);
+            displayResponse('contact-response', response);
+        }
+
+        // Quick Actions
+        async function testAllAPIs() {
+            const apis = [
+                { name: 'Newsletter Stats', func: testNewsletterStats },
+                { name: 'Showcase Stats', func: testShowcaseStats },
+                { name: 'News List', func: testNewsList },
+                { name: 'Cars Stats', func: testCarsStats },
+                { name: 'Gallery List', func: testGalleryList }
+            ];
+
+            for (const api of apis) {
+                console.log(`Testing ${api.name}...`);
+                await api.func();
+                await new Promise(resolve => setTimeout(resolve, 500)); // Small delay between tests
+            }
+        }
+
+        function clearAllResponses() {
+            const responseAreas = document.querySelectorAll('.response-area');
+            responseAreas.forEach(area => {
+                area.textContent = 'Click a button to test...';
+                area.className = 'response-area';
+            });
+        }
+
+        async function testDatabaseConnection() {
+            const response = await makeAPICall('../test/test-backend.php');
+            displayResponse('newsletter-response', response);
+        }
+
+        function resetTestData() {
+            if (confirm('This will reset all test data. Are you sure?')) {
+                // Reset form values to defaults
+                document.getElementById('newsletter-email').value = 'test@example.com';
+                document.getElementById('newsletter-name').value = 'Test User';
+                document.getElementById('showcase-name').value = 'John Doe';
+                document.getElementById('showcase-make').value = 'Ferrari';
+                document.getElementById('showcase-model').value = '488 Pista';
+                document.getElementById('showcase-contact').value = '+233123456789';
+                document.getElementById('showcase-plate').value = 'GT-TEST-123';
+                document.getElementById('showcase-description').value = 'Beautiful Ferrari with custom modifications and racing setup.';
+                clearAllResponses();
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('API Testing Interface loaded successfully!');
+        });
+    </script>
+</body>
+</html>

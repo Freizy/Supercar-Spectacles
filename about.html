@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Supercar Spectacle</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="logo.png" alt="SUPERCAR SPECTACLE Logo" class="logo-image">
+                    <img src="logo text.png" alt="SUPERCAR SPECTACLE Logo" class="logo-text-image">
+                </a>
+            </div>
+                            <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link active">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="news.html" class="nav-link">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link register-btn" onclick="openShowcaseModal()">Register Now</button>
+                    </li>
+                </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-background">
+                            <img src="selected images/A3.JPG" alt="Supercar Spectacle Hero" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">About Supercar Spectacle</h1>
+                <p class="hero-subtitle">West Africa's Premier Automotive Lifestyle Festival</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2025</span>
+                        <span class="stat-label">Event Year</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Expected Attendees</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Supercars</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h2>Our Mission</h2>
+                    <p>Supercar Spectacle 2025 is more than a car show—it's a celebration of lifestyle, speed, innovation, and youth culture. As West Africa's first premium automotive lifestyle festival, we're accelerating Ghana's event and auto culture into the global spotlight.</p>
+                    <div class="mission-features">
+                        <div class="feature">
+                            <i class="fas fa-car"></i>
+                            <span>Premium Supercars</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-music"></i>
+                            <span>Live Entertainment</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-store"></i>
+                            <span>Vendors Zones</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <span>Community Building</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mission-image">
+                    <img src="selected images/logo text.png" alt="Supercar Spectacle Mission" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section">
+        <div class="container">
+            <h2 class="section-title">The Ultimate Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="card-image">
+                        <img src="selected images/live entertainment.jpg" alt="Live Entertainment" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <h3>Live Entertainment</h3>
+                        <p>Experience the best of Ghana's music scene with live performances, DJ sets, and entertainment that keeps the energy high throughout the event.</p>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <div class="card-image">
+                        <img src="selected images/A1.jpg" alt="Supercar Showcase" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <h3>Supercar Showcase</h3>
+                        <p>Get up close with over 50 of the world's most exclusive supercars, from classic beauties to modern marvels of engineering.</p>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <div class="card-image">
+                        <img src="selected images/go-cart.jpg" alt="Go-Kart Zones" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <h3>Go-Kart Zones</h3>
+                        <p>Our Go-Kart Zone brings the thrill of racing to all with a safe, high-energy track designed for pure fun.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="experience-view-more">
+                <a href="experiences.html" class="btn btn-primary">View More Experiences</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Highlights -->
+    <section class="highlights-section">
+        <div class="container">
+            <div class="highlights-content">
+                <div class="highlights-text">
+                    <h2>Event Highlights</h2>
+                    <div class="highlights-list">
+                        <div class="highlight-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <h4>Live Social Media Streaming</h4>
+                                <p>Instagram, TikTok, and YouTube live coverage throughout the event.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-camera"></i>
+                            <div>
+                                <h4>Media Booths</h4>
+                                <p>Dedicated spaces for content creators and sponsors to capture the action.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-qrcode"></i>
+                            <div>
+                                <h4>Digital Engagement</h4>
+                                <p>QR codes at each vendor stall for seamless digital lead capture.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlights-image">
+                    <img src="selected images/E1.jpg" alt="Supercar Spectacle Highlights" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NGO Partnership Section -->
+    <section class="ngo-section">
+        <div class="container">
+            <div class="ngo-content">
+                <div class="ngo-text">
+                    <h2>Wheel of Hope</h2>
+                    <p class="ngo-intro">Our event is proudly supported by Wheel of Hope, a non-governmental organization dedicated to empowering and advocating for people who need and use wheelchairs.</p>
+                    <p>The NGO provides a platform that promotes inclusion, accessibility, and equal opportunities in society. Through outreach programs, awareness campaigns, and partnerships, Wheel of Hope is committed to breaking barriers and ensuring that individuals living with mobility challenges are not left behind.</p>
+                    <p>By connecting this mission with the excitement of the Supercar Spectacle, we aim not only to entertain but also to shine a light on the strength, resilience, and limitless potential of people with disabilities.</p>
+                    <div class="ngo-features">
+                        <div class="ngo-feature">
+                            <i class="fas fa-heart"></i>
+                            <span>Inclusion & Accessibility</span>
+                        </div>
+                        <div class="ngo-feature">
+                            <i class="fas fa-hands-helping"></i>
+                            <span>Advocacy & Support</span>
+                        </div>
+                        <div class="ngo-feature">
+                            <i class="fas fa-users"></i>
+                            <span>Community Building</span>
+                        </div>
+                        <div class="ngo-feature">
+                            <i class="fas fa-star"></i>
+                            <span>Empowerment</span>
+                        </div>
+                    </div>
+                    <div class="ngo-cta">
+                        <a href="ngo.html" class="btn btn-primary">Learn More About Wheel of Hope</a>
+                    </div>
+                </div>
+                <div class="ngo-image">
+                    <img src="selected images/wheelchair.jpg" alt="Wheel of Hope Partnership" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Shift Gears?</h2>
+                <p>Join us in creating something unforgettable at Supercar Spectacle 2025.</p>
+                <div class="cta-buttons">
+                    <a href="news.html" class="btn btn-primary">Get Updates</a>
+                    <a href="gallery.html" class="btn btn-secondary">View Gallery</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo-link">
+                                                <img src="logo.png" alt="SUPERCAR SPECTACLE Logo" class="logo-image">
+                    <img src="logo text.png" alt="SUPERCAR SPECTACLE Logo" class="logo-text-image">
+                        </a>
+                    </div>
+                    <p>Ghana's premier automotive showcase</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone"></i> 0558702163</p>
+                    <p><i class="fas fa-envelope"></i> supercarspectacle1@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SUPERCAR SPECTACLE. All rights reserved. | Designed by SARGENT</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Showcase Registration Modal -->
+    <div id="showcaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Register Your Supercar</h2>
+            <form id="showcaseForm">
+                <div class="form-group">
+                    <label for="showcaseName">Full Name:</label>
+                    <input type="text" id="showcaseName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="carMake">Car Make:</label>
+                    <input type="text" id="carMake" name="make" placeholder="e.g. Ferrari" required>
+                </div>
+                <div class="form-group">
+                    <label for="carModel">Car Model:</label>
+                    <input type="text" id="carModel" name="model" placeholder="e.g. 488 Pista" required>
+                </div>
+                <div class="form-group">
+                    <label for="showcaseContact">Contact Number:</label>
+                    <input type="tel" id="showcaseContact" name="contact" required>
+                </div>
+                <div class="form-group">
+                    <label for="plateNumber">Plate Number:</label>
+                    <input type="text" id="plateNumber" name="plateNumber" placeholder="e.g. GT-1234-AB" required>
+                </div>
+                <div class="form-group">
+                    <label for="showcaseDescription">Brief Description:</label>
+                    <textarea id="showcaseDescription" name="description" rows="4" placeholder="Tell us about your car: specs, mods, unique features" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

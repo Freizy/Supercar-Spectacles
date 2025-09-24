@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPERCAR SPECTACLE - Car Sales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="logo.png" alt="SUPERCAR SPECTACLE Logo" class="logo-image">
+                    <img src="logo text.png" alt="SUPERCAR SPECTACLE Logo" class="logo-text-image">
+                </a>
+            </div>
+                            <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="news.html" class="nav-link">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link register-btn" onclick="openShowcaseModal()">Register Now</button>
+                    </li>
+                </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sales Header -->
+    <section class="sales-header">
+        <div class="container">
+            <h1>Exclusive Supercar Sales</h1>
+            <p>Discover and purchase the world's most exclusive supercars</p>
+        </div>
+    </section>
+
+    <!-- Filters and Search -->
+    <section class="sales-filters">
+        <div class="container">
+            <div class="filter-container">
+                <div class="search-box">
+                    <input type="text" id="searchCars" placeholder="Search cars..." onkeyup="filterCars()">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filter-options">
+                    <select id="brandFilter" onchange="filterCars()">
+                        <option value="">All Brands</option>
+                        <option value="ferrari">Ferrari</option>
+                        <option value="lamborghini">Lamborghini</option>
+                        <option value="mclaren">McLaren</option>
+                        <option value="porsche">Porsche</option>
+                        <option value="bugatti">Bugatti</option>
+                        <option value="aston-martin">Aston Martin</option>
+                    </select>
+                    <select id="priceFilter" onchange="filterCars()">
+                        <option value="">All Prices</option>
+                        <option value="0-500000">Under $500,000</option>
+                        <option value="500000-1000000">$500,000 - $1,000,000</option>
+                        <option value="1000000-2000000">$1,000,000 - $2,000,000</option>
+                        <option value="2000000+">Over $2,000,000</option>
+                    </select>
+                    <select id="yearFilter" onchange="filterCars()">
+                        <option value="">All Years</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Listings -->
+    <section class="car-listings">
+        <div class="container">
+            <div class="cars-grid" id="carsGrid">
+                <!-- Car 1 -->
+                <div class="car-card" data-brand="ferrari" data-price="850000" data-year="2023">
+                    <div class="car-image">
+                        <img src="selected images/ferrari.jpeg" alt="Ferrari SF90 Stradale" class="car-img">
+                        <div class="car-overlay">
+                            <span class="car-status">Available</span>
+                            <div class="car-actions">
+                                <button class="btn-icon" onclick="viewCarDetails(1)"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" onclick="addToFavorites(1)"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <h3>Ferrari SF90 Stradale</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-tachometer-alt"></i> 986 HP</span>
+                            <span><i class="fas fa-clock"></i> 2.5s 0-60</span>
+                            <span><i class="fas fa-road"></i> 211 mph</span>
+                        </div>
+                        <div class="car-price">$850,000</div>
+                        <div class="car-actions-bottom">
+                            <button class="btn btn-secondary" onclick="viewCarDetails(1)">View Details</button>
+                            <button class="btn btn-primary" onclick="inquireCar(1)">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car 2 -->
+                <div class="car-card" data-brand="lamborghini" data-price="420000" data-year="2024">
+                    <div class="car-image">
+                        <img src="selected images/lambo.jpeg" alt="Lamborghini Huracán STO" class="car-img">
+                        <div class="car-overlay">
+                            <span class="car-status">Available</span>
+                            <div class="car-actions">
+                                <button class="btn-icon" onclick="viewCarDetails(2)"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" onclick="addToFavorites(2)"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <h3>Lamborghini Huracán STO</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-tachometer-alt"></i> 631 HP</span>
+                            <span><i class="fas fa-clock"></i> 3.0s 0-60</span>
+                            <span><i class="fas fa-road"></i> 193 mph</span>
+                        </div>
+                        <div class="car-price">$420,000</div>
+                        <div class="car-actions-bottom">
+                            <button class="btn btn-secondary" onclick="viewCarDetails(2)">View Details</button>
+                            <button class="btn btn-primary" onclick="inquireCar(2)">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car 3 -->
+                <div class="car-card" data-brand="mclaren" data-price="1200000" data-year="2023">
+                    <div class="car-image">
+                        <img src="selected images/maclaren.jpeg" alt="McLaren 765LT" class="car-img">
+                        <div class="car-overlay">
+                            <span class="car-status">Available</span>
+                            <div class="car-actions">
+                                <button class="btn-icon" onclick="viewCarDetails(3)"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" onclick="addToFavorites(3)"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <h3>McLaren 765LT</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-tachometer-alt"></i> 755 HP</span>
+                            <span><i class="fas fa-clock"></i> 2.7s 0-60</span>
+                            <span><i class="fas fa-road"></i> 205 mph</span>
+                        </div>
+                        <div class="car-price">$1,200,000</div>
+                        <div class="car-actions-bottom">
+                            <button class="btn btn-secondary" onclick="viewCarDetails(3)">View Details</button>
+                            <button class="btn btn-primary" onclick="inquireCar(3)">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car 4 -->
+                <div class="car-card" data-brand="porsche" data-price="280000" data-year="2024">
+                    <div class="car-image">
+                        <img src="selected images/porsche 911 gt3 rs.jpeg" alt="Porsche 911 GT3 RS" class="car-img">
+                        <div class="car-overlay">
+                            <span class="car-status">Available</span>
+                            <div class="car-actions">
+                                <button class="btn-icon" onclick="viewCarDetails(4)"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" onclick="addToFavorites(4)"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <h3>Porsche 911 GT3 RS</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-tachometer-alt"></i> 518 HP</span>
+                            <span><i class="fas fa-clock"></i> 3.2s 0-60</span>
+                            <span><i class="fas fa-road"></i> 184 mph</span>
+                        </div>
+                        <div class="car-price">$280,000</div>
+                        <div class="car-actions-bottom">
+                            <button class="btn btn-secondary" onclick="viewCarDetails(4)">View Details</button>
+                            <button class="btn btn-primary" onclick="inquireCar(4)">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car 5 -->
+                <div class="car-card" data-brand="bugatti" data-price="3500000" data-year="2022">
+                    <div class="car-image">
+                        <img src="selected images/bugatti.jpeg" alt="Bugatti Chiron Super Sport" class="car-img">
+                        <div class="car-overlay">
+                            <span class="car-status">Available</span>
+                            <div class="car-actions">
+                                <button class="btn-icon" onclick="viewCarDetails(5)"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" onclick="addToFavorites(5)"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <h3>Bugatti Chiron Super Sport</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-tachometer-alt"></i> 1578 HP</span>
+                            <span><i class="fas fa-clock"></i> 2.4s 0-60</span>
+                            <span><i class="fas fa-road"></i> 273 mph</span>
+                        </div>
+                        <div class="car-price">$3,500,000</div>
+                        <div class="car-actions-bottom">
+                            <button class="btn btn-secondary" onclick="viewCarDetails(5)">View Details</button>
+                            <button class="btn btn-primary" onclick="inquireCar(5)">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car 6 -->
+                <div class="car-card" data-brand="aston-martin" data-price="650000" data-year="2023">
+                    <div class="car-image">
+                        <img src="selected images/aston.jpeg" alt="Aston Martin DBS" class="car-img">
+                        <div class="car-overlay">
+                            <span class="car-status">Available</span>
+                            <div class="car-actions">
+                                <button class="btn-icon" onclick="viewCarDetails(6)"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" onclick="addToFavorites(6)"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <h3>Aston Martin DBS</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-tachometer-alt"></i> 715 HP</span>
+                            <span><i class="fas fa-clock"></i> 3.4s 0-60</span>
+                            <span><i class="fas fa-road"></i> 211 mph</span>
+                        </div>
+                        <div class="car-price">$650,000</div>
+                        <div class="car-actions-bottom">
+                            <button class="btn btn-secondary" onclick="viewCarDetails(6)">View Details</button>
+                            <button class="btn btn-primary" onclick="inquireCar(6)">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Details Modal -->
+    <div id="carModal" class="modal">
+        <div class="modal-content car-modal">
+            <span class="close">&times;</span>
+            <div class="car-details">
+                <div class="car-gallery">
+                    <div class="main-image">
+                        <img id="carMainImage" src="" alt="Car">
+                    </div>
+                    <div class="thumbnail-images">
+                        <img src="" alt="Thumbnail 1" onclick="changeMainImage(this.src)">
+                        <img src="" alt="Thumbnail 2" onclick="changeMainImage(this.src)">
+                        <img src="" alt="Thumbnail 3" onclick="changeMainImage(this.src)">
+                        <img src="" alt="Thumbnail 4" onclick="changeMainImage(this.src)">
+                    </div>
+                </div>
+                <div class="car-details-info">
+                    <h2 id="carTitle"></h2>
+                    <div class="car-price-large" id="carPrice"></div>
+                    <div class="car-specs-detailed">
+                        <div class="spec-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Power: <strong id="carPower"></strong></span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-clock"></i>
+                            <span>0-60 mph: <strong id="carAcceleration"></strong></span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-road"></i>
+                            <span>Top Speed: <strong id="carTopSpeed"></strong></span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>Year: <strong id="carYear"></strong></span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-palette"></i>
+                            <span>Color: <strong id="carColor"></strong></span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Transmission: <strong id="carTransmission"></strong></span>
+                        </div>
+                    </div>
+                    <div class="car-description" id="carDescription"></div>
+                    <div class="car-actions-modal">
+                        <button class="btn btn-primary" onclick="inquireCarModal()">Make Inquiry</button>
+                        <button class="btn btn-secondary" onclick="scheduleTestDrive()">Schedule Test Drive</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inquiry Modal -->
+    <div id="inquiryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Car Inquiry</h2>
+            <form id="inquiryForm">
+                <div class="form-group">
+                    <label for="inquiryCar">Car:</label>
+                    <input type="text" id="inquiryCar" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="inquiryName">Full Name:</label>
+                    <input type="text" id="inquiryName" required>
+                </div>
+                <div class="form-group">
+                    <label for="inquiryEmail">Email:</label>
+                    <input type="email" id="inquiryEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="inquiryPhone">Phone:</label>
+                    <input type="tel" id="inquiryPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="inquiryMessage">Message:</label>
+                    <textarea id="inquiryMessage" rows="4" placeholder="Tell us about your interest in this car..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo-link">
+                                                <img src="logo.png" alt="SUPERCAR SPECTACLE Logo" class="logo-image">
+                    <img src="logo text.png" alt="SUPERCAR SPECTACLE Logo" class="logo-text-image">
+                        </a>
+                    </div>
+                    <p>Ghana's premier automotive showcase</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone"></i> 0558702163</p>
+                    <p><i class="fas fa-envelope"></i> supercarspectacle1@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SUPERCAR SPECTACLE. All rights reserved. | Designed by SARGENT</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Showcase Registration Modal -->
+    <div id="showcaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Register Your Supercar</h2>
+            <form id="showcaseForm">
+                <div class="form-group">
+                    <label for="showcaseName">Full Name:</label>
+                    <input type="text" id="showcaseName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="carMake">Car Make:</label>
+                    <input type="text" id="carMake" name="make" placeholder="e.g. Ferrari" required>
+                </div>
+                <div class="form-group">
+                    <label for="carModel">Car Model:</label>
+                    <input type="text" id="carModel" name="model" placeholder="e.g. 488 Pista" required>
+                </div>
+                <div class="form-group">
+                    <label for="showcaseContact">Contact Number:</label>
+                    <input type="tel" id="showcaseContact" name="contact" required>
+                </div>
+                <div class="form-group">
+                    <label for="plateNumber">Plate Number:</label>
+                    <input type="text" id="plateNumber" name="plateNumber" placeholder="e.g. GT-1234-AB" required>
+                </div>
+                <div class="form-group">
+                    <label for="showcaseDescription">Brief Description:</label>
+                    <textarea id="showcaseDescription" name="description" rows="4" placeholder="Tell us about your car: specs, mods, unique features" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
