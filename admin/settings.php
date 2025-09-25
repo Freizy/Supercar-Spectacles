@@ -174,7 +174,7 @@ try {
             width: fit-content;
             margin-top: 10px;
         }
-        
+
         .btn-submit:hover {
             opacity: 0.9;
         }
@@ -234,7 +234,8 @@ try {
             margin-top: 20px;
         }
 
-        .user-table th, .user-table td {
+        .user-table th,
+        .user-table td {
             padding: 12px;
             border: 1px solid #eee;
             text-align: left;
@@ -245,44 +246,53 @@ try {
             font-size: 1.2em;
             color: #667eea;
         }
-        
+
         /* Modal (Pop-up) Styles */
         .modal {
-          display: none; /* Hidden by default */
-          position: fixed; /* Stay in place */
-          z-index: 100; /* Sit on top */
-          left: 0;
-          top: 0;
-          width: 100%; /* Full width */
-          height: 100%; /* Full height */
-          overflow: auto; /* Enable scroll if needed */
-          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 100;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
         }
 
         .modal-content {
-          background-color: #fefefe;
-          margin: 10% auto; /* 10% from the top and centered */
-          padding: 25px;
-          border: 1px solid #888;
-          width: 80%; /* Could be more or less, depending on screen size */
-          max-width: 500px;
-          border-radius: 10px;
-          position: relative;
-          box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            background-color: #fefefe;
+            margin: 10% auto;
+            /* 10% from the top and centered */
+            padding: 25px;
+            border: 1px solid #888;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+            max-width: 500px;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .close-btn {
-          color: #aaa;
-          float: right;
-          font-size: 28px;
-          font-weight: bold;
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
         }
 
         .close-btn:hover,
         .close-btn:focus {
-          color: #000;
-          text-decoration: none;
-          cursor: pointer;
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         /* Mobile styles */
@@ -291,15 +301,25 @@ try {
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
             }
+
             .sidebar.open {
                 transform: translateX(0);
             }
+
             .main-content {
                 margin-left: 0;
             }
+
             .stats-grid {
                 grid-template-columns: 1fr;
             }
+        }
+
+        .logout-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
         }
     </style>
 </head>
@@ -388,25 +408,25 @@ try {
                         </thead>
                         <tbody>
                             <?php foreach ($users as $user): ?>
-                            <tr>
-                                <td><?php echo htmlspecialchars($user['username']); ?></td>
-                                <td><?php echo htmlspecialchars($user['email']); ?></td>
-                                <td>
-                                    <form action="update_user.php" method="POST" style="display:inline;">
-                                        <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                                        <select name="role" onchange="this.form.submit()">
-                                            <option value="admin" <?php echo ($user['role'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
-                                            <option value="moderator" <?php echo ($user['role'] == 'moderator') ? 'selected' : ''; ?>>Moderator</option>
-                                            <option value="user" <?php echo ($user['role'] == 'user') ? 'selected' : ''; ?>>User</option>
-                                        </select>
-                                    </form>
-                                </td>
-                                <td class="user-actions">
-                                    <a href="delete_user.php?id=<?php echo $user['id']; ?>" onclick="return confirm('Are you sure you want to delete this user?');" title="Delete User">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($user['username']); ?></td>
+                                    <td><?php echo htmlspecialchars($user['email']); ?></td>
+                                    <td>
+                                        <form action="update_user.php" method="POST" style="display:inline;">
+                                            <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                                            <select name="role" onchange="this.form.submit()">
+                                                <option value="admin" <?php echo ($user['role'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
+                                                <option value="moderator" <?php echo ($user['role'] == 'moderator') ? 'selected' : ''; ?>>Moderator</option>
+                                                <option value="user" <?php echo ($user['role'] == 'user') ? 'selected' : ''; ?>>User</option>
+                                            </select>
+                                        </form>
+                                    </td>
+                                    <td class="user-actions">
+                                        <a href="delete_user.php?id=<?php echo $user['id']; ?>" onclick="return confirm('Are you sure you want to delete this user?');" title="Delete User">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -493,4 +513,5 @@ try {
         </main>
     </div>
 </body>
+
 </html>

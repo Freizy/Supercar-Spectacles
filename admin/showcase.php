@@ -381,6 +381,13 @@ try {
         grid-template-columns: 1fr;
       }
     }
+
+    .logout-btn {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+    }
   </style>
 </head>
 

@@ -207,6 +207,18 @@
     </div>
   </section>
 
+  <!-- Newsletter Subscription -->
+<section id="newsletter" class="newsletter-section">
+    <div class="container">
+        <h2>Stay Updated with Our Newsletter!</h2>
+        <p>Subscribe to get the latest news, updates, and exclusive offers delivered straight to your inbox.</p>
+        <form action="subscribe.php" method="POST" class="newsletter-form">
+            <input type="email" name="email" placeholder="Enter your email address" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+    </div>
+</section>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -365,7 +377,7 @@
           Submit Registration
         </button>
       </form>
-    </div> 
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
