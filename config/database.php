@@ -1,22 +1,32 @@
 <?php
+
 /**
  * Database Configuration for Supercar Spectacles
  * 
  * This file contains the database connection configuration
  * and initialization for the Supercar Spectacles website.
- */ 
+ */
 
-class Database {
+class Database
+{
     private $host = 'localhost';
     private $db_name = 'supercar_spectacles';
     private $username = 'root';
     private $password = '';
     private $conn;
+    private $config;
+
+    public function __construct()
+    {
+        // You can initialize any required properties here if needed
+        $this->config = require 'db_config.php';
+    }
 
     /**
      * Get database connection
      */
-    public function getConnection() {
+    public function getConnection()
+    {
         $this->conn = null;
 
         try {
@@ -27,7 +37,7 @@ class Database {
             );
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        } catch(PDOException $exception) {
+        } catch (PDOException $exception) {
             echo "Connection error: " . $exception->getMessage();
         }
 
@@ -37,7 +47,8 @@ class Database {
     /**
      * Close database connection
      */
-    public function closeConnection() {
+    public function closeConnection()
+    {
         $this->conn = null;
     }
 }
@@ -87,4 +98,3 @@ define('EVENT_TIME', '10:00 AM - 8:00 PM');
 define('GENERAL_TICKET_PRICE', 500);
 define('VIP_TICKET_PRICE', 1500);
 define('PREMIUM_TICKET_PRICE', 2500);
-?>
