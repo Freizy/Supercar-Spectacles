@@ -19,7 +19,7 @@
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">
-        <a href="index.html" class="logo-link">
+        <a href="index.php" class="logo-link">
           <img
             src="logo.png"
             alt="SUPERCAR SPECTACLE Logo"
@@ -32,7 +32,7 @@
       </div>
       <ul class="nav-menu">
         <li class="nav-item">
-          <a href="index.html" class="nav-link active">Home</a>
+          <a href="index.php" class="nav-link active">Home</a>
         </li>
         <li class="nav-item">
           <a href="about.html" class="nav-link">About</a>
@@ -208,16 +208,19 @@
   </section>
 
   <!-- Newsletter Subscription -->
-<section id="newsletter" class="newsletter-section">
+  <section class="newsletter">
     <div class="container">
-        <h2>Stay Updated with Our Newsletter!</h2>
-        <p>Subscribe to get the latest news, updates, and exclusive offers delivered straight to your inbox.</p>
-        <form action="subscribe.php" method="POST" class="newsletter-form">
-            <input type="email" name="email" placeholder="Enter your email address" required>
-            <button type="submit" class="btn btn-primary">Subscribe</button>
+      <div class="newsletter-content">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter for the latest news and exclusive updates about SUPERCAR SPECTACLE</p>
+        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
+      </div>
     </div>
-</section>
+  </section>
+
 
   <!-- Footer -->
   <footer class="footer">
@@ -225,7 +228,7 @@
       <div class="footer-content">
         <div class="footer-section">
           <div class="footer-logo">
-            <a href="index.html" class="logo-link">
+            <a href="index.php" class="logo-link">
               <img
                 src="logo.png"
                 alt="SUPERCAR SPECTACLE Logo"
@@ -241,7 +244,7 @@
         <div class="footer-section">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.phpl">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="news.html">News</a></li>
             <li><a href="gallery.html">Gallery</a></li>
