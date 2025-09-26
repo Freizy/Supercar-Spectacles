@@ -105,6 +105,35 @@
     </div>
   </section>
 
+  <?php
+  // Check for and display any session messages
+  session_start();
+  if (isset($_SESSION['form_message']) && !empty($_SESSION['form_message'])) {
+    $message = htmlspecialchars($_SESSION['form_message']);
+    $type = $_SESSION['message_type'] ?? 'info'; // Default to info if not set
+
+    // Determine the style based on message type
+    $style = '';
+    switch ($type) {
+      case 'success':
+        $style = 'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;';
+        break;
+      case 'error':
+        $style = 'background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;';
+        break;
+      case 'info':
+        $style = 'background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb;';
+        break;
+    }
+
+    echo "<div class='message' style='padding: 15px; margin: 20px auto; border-radius: 5px; width: 80%; text-align: center; $style'>$message</div>";
+
+    // Clear the session messages after displaying them
+    unset($_SESSION['form_message']);
+    unset($_SESSION['message_type']);
+  }
+  ?>
+
   <!-- Showcase Registration Section -->
   <section id="showcase" class="showcase-section">
     <div class="container">
@@ -213,8 +242,8 @@
       <div class="newsletter-content">
         <h2>Stay Updated</h2>
         <p>Subscribe to our newsletter for the latest news and exclusive updates about SUPERCAR SPECTACLE</p>
-        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-          <input type="email" placeholder="Enter your email address" required>
+        <form class="newsletter-form" method="post" action="admin/subscribe.php">
+          <input type="email" name="email" placeholder="Enter your email address" required>
           <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
       </div>
@@ -326,7 +355,7 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2>Register Your Supercar</h2>
-      <form id="showcaseForm" method="post" action="register_showcase.php" name="showcaseForm">
+      <form id="showcaseForm" method="post" action="./admin/register_showcase.php" name="showcaseForm">
         <div class="form-group">
           <label for="owner_name">Full Name:</label>
           <input type="text" id="owner_name" name="owner_name" required />

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supercar Spectacles - Event Countdown</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom CSS for a background image and dark overlay */
+      .hero-background {
+        /* Using a placeholder image URL, replace with a high-quality supercar image */
+        background-image: url("https://placehold.co/1920x1080/0d0d0d/1f2937?text=SUPERCAR+SPECTACLES+2025");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        height: 100vh;
+      }
+
+      /* Set font to Inter */
+      body {
+        font-family: "MonumentExtended";
+        src: url("font style and concept/MonumentExtended-Ultrabold.otf")
+          format("opentype");
+      }
+
+      /* Countdown segment styling */
+      .countdown-segment {
+        background-color: linear-gradient(
+          135deg,
+          #000000 0%,
+          #1a1a1a 50%,
+          #2d2d2d 100%
+        );
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        transition: transform 0.2s ease;
+      }
+      .countdown-segment:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <div class="hero-background flex items-center justify-center">
+      <!-- Dark Overlay for better text contrast -->
+      <div class="absolute inset-0 bg-black opacity-60"></div>
+
+      <!-- Main Content Container -->
+      <div
+        class="relative z-10 p-6 md:p-12 lg:p-20 text-center max-w-4xl w-full"
+      >
+        <h1
+          class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-amber-400 mb-4"
+        >
+          SUPERCAR SPECTACLES
+        </h1>
+        <p
+          class="text-xl sm:text-2xl lg:text-3xl text-gray-200 font-light mb-12"
+        >
+          Accra, Ghana | December 15 - 17, 2025
+        </p>
+
+        <!-- Countdown Timer Display -->
+        <div
+          id="countdown-display"
+          class="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-8 mb-12"
+        >
+          <!-- Days -->
+          <div class="countdown-segment p-4 md:p-6 lg:p-8">
+            <span
+              id="days"
+              class="block text-4xl sm:text-5xl lg:text-7xl font-mono font-bold text-amber-300"
+              >00</span
+            >
+            <span
+              class="block mt-2 text-sm sm:text-lg uppercase tracking-wider text-gray-400"
+              >Days</span
+            >
+          </div>
+          <!-- Hours -->
+          <div class="countdown-segment p-4 md:p-6 lg:p-8">
+            <span
+              id="hours"
+              class="block text-4xl sm:text-5xl lg:text-7xl font-mono font-bold text-amber-300"
+              >00</span
+            >
+            <span
+              class="block mt-2 text-sm sm:text-lg uppercase tracking-wider text-gray-400"
+              >Hours</span
+            >
+          </div>
+          <!-- Minutes -->
+          <div class="countdown-segment p-4 md:p-6 lg:p-8">
+            <span
+              id="minutes"
+              class="block text-4xl sm:text-5xl lg:text-7xl font-mono font-bold text-amber-300"
+              >00</span
+            >
+            <span
+              class="block mt-2 text-sm sm:text-lg uppercase tracking-wider text-gray-400"
+              >Minutes</span
+            >
+          </div>
+          <!-- Seconds -->
+          <div class="countdown-segment p-4 md:p-6 lg:p-8">
+            <span
+              id="seconds"
+              class="block text-4xl sm:text-5xl lg:text-7xl font-mono font-bold text-amber-300"
+              >00</span
+            >
+            <span
+              class="block mt-2 text-sm sm:text-lg uppercase tracking-wider text-gray-400"
+              >Seconds</span
+            >
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <button
+          onclick="document.querySelector('#cta-message').classList.remove('hidden')"
+          class="px-8 py-4 bg-amber-500 text-gray-900 font-extrabold uppercase rounded-full tracking-widest text-lg shadow-lg hover:bg-amber-400 transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Secure Your VIP Ticket Now!
+        </button>
+
+        <!-- Message Box (Instead of alert()) -->
+        <div
+          id="cta-message"
+          class="hidden mt-8 p-4 bg-yellow-900 bg-opacity-70 text-amber-200 rounded-lg max-w-sm mx-auto shadow-xl"
+        >
+          <p>
+            Ticket booking is not yet implemented. This would link to your
+            tickets page!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Use the event date defined in your PHP constants (2025-12-15)
+      const EVENT_DATE = "2025-12-15T10:00:00"; // Setting to 10:00 AM start time
+      const COUNTDOWN_TARGET = new Date(EVENT_DATE).getTime();
+
+      const countdownElements = {
+        days: document.getElementById("days"),
+        hours: document.getElementById("hours"),
+        minutes: document.getElementById("minutes"),
+        seconds: document.getElementById("seconds"),
+      };
+
+      // Helper function to ensure numbers are always two digits
+      const formatTime = (time) => String(time).padStart(2, "0");
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = COUNTDOWN_TARGET - now;
+
+        // Check if the event has passed
+        if (distance < 0) {
+          // Display message when event starts
+          document.getElementById("countdown-display").innerHTML =
+            '<h2 class="text-4xl font-bold text-amber-500">EVENT IS LIVE!</h2>';
+          clearInterval(interval);
+          return;
+        }
+
+        // Calculate time components
+        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const h = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Update the display
+        countdownElements.days.textContent = formatTime(d);
+        countdownElements.hours.textContent = formatTime(h);
+        countdownElements.minutes.textContent = formatTime(m);
+        countdownElements.seconds.textContent = formatTime(s);
+      }
+
+      // Run the countdown function immediately to avoid a 1-second delay
+      updateCountdown();
+
+      // Update the countdown every second
+      const interval = setInterval(updateCountdown, 1000);
+    </script>
+  </body>
+</html>

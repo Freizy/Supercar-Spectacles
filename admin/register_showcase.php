@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
-require_once 'config/database.php';
+require_once '../config/database.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sub'])) {
   try {
@@ -41,5 +41,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sub'])) {
 }
 
 // Keep the code from redirecting so you can see the output
-// header('Location: index.php?registration=success');
-// exit();
+header('Location: ../index.php?registration=success');
+exit();

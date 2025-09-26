@@ -6,7 +6,7 @@
  */
 
 session_start();
-require_once 'config/database.php';
+require_once '../config/database.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['email'])) {
   $db = new Database();
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['email'])) {
   // Sanitize and validate the email address
   $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
 
-  // Add a check for the name field if you include it in your form
+  // Check for an optional 'name' field from the form
   $name = isset($_POST['name']) ? trim($_POST['name']) : null;
 
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['email'])) {
   }
 
   try {
-    // Prepare the SQL statement to insert into the new table
-    // We'll use ON DUPLICATE KEY UPDATE to handle existing subscribers gracefully
+    // Prepare the SQL statement with ON DUPLICATE KEY UPDATE
+    // This handles new subscriptions and re-activates unsubscribed users
     $stmt = $conn->prepare("
             INSERT INTO newsletter_subscriptions (email, name) 
             VALUES (:email, :name)
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['email'])) {
     $_SESSION['form_message'] = "Thank you for subscribing!";
     $_SESSION['message_type'] = "success";
   } catch (PDOException $e) {
-    $_SESSION['form_message'] = "Subscription failed. Please try again later. Error: " . $e->getMessage();
+    $_SESSION['form_message'] = "Subscription failed. Please try again later.";
     $_SESSION['message_type'] = "error";
   }
 } else {
@@ -49,5 +49,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['email'])) {
   $_SESSION['message_type'] = "error";
 }
 
-header('Location: index.php');
+header('Location: ../index.php');
 exit();

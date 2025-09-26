@@ -21,8 +21,9 @@ $conn = $db->getConnection();
 $subscribers = [];
 $error_message = '';
 try {
-    $stmt = $conn->query("SELECT id, email, subscribed_at FROM newsletter_subscribers ORDER BY subscribed_at DESC");
+    $stmt = $conn->query("SELECT id, email, subscribed_at, status FROM newsletter_subscriptions WHERE status = 'active' ORDER BY subscribed_at DESC");
     $subscribers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 } catch (PDOException $e) {
     $error_message = "Database error: " . $e->getMessage();
 }
@@ -407,6 +408,7 @@ unset($_SESSION['error_message']);
                                 <th>ID</th>
                                 <th>Email</th>
                                 <th>Subscribed At</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -415,6 +417,7 @@ unset($_SESSION['error_message']);
                                     <td><?php echo htmlspecialchars($subscriber['id']); ?></td>
                                     <td><?php echo htmlspecialchars($subscriber['email']); ?></td>
                                     <td><?php echo htmlspecialchars($subscriber['subscribed_at']); ?></td>
+                                    <td><?php echo htmlspecialchars(ucfirst($subscriber['status'])); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

@@ -2,58 +2,13 @@
 
 /**
  * Database Configuration for Supercar Spectacles
- * 
- * This file contains the database connection configuration
+ * * This file contains the database connection configuration
  * and initialization for the Supercar Spectacles website.
+ * * NOTE: The Database class now uses the constants defined below
+ * for consistency and ease of maintenance.
  */
 
-class Database
-{
-    private $host = 'localhost';
-    private $db_name = 'supercar_spectacles';
-    private $username = 'root';
-    private $password = '';
-    private $conn;
-    private $config;
-
-    public function __construct()
-    {
-        // You can initialize any required properties here if needed
-        $this->config = require 'db_config.php';
-    }
-
-    /**
-     * Get database connection
-     */
-    public function getConnection()
-    {
-        $this->conn = null;
-
-        try {
-            $this->conn = new PDO(
-                "mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=utf8",
-                $this->username,
-                $this->password
-            );
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        } catch (PDOException $exception) {
-            echo "Connection error: " . $exception->getMessage();
-        }
-
-        return $this->conn;
-    }
-
-    /**
-     * Close database connection
-     */
-    public function closeConnection()
-    {
-        $this->conn = null;
-    }
-}
-
-// Database configuration constants
+// Database configuration constants (Define these first so the class can use them)
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'supercar_spectacles');
 define('DB_USER', 'root');
@@ -98,3 +53,57 @@ define('EVENT_TIME', '10:00 AM - 8:00 PM');
 define('GENERAL_TICKET_PRICE', 500);
 define('VIP_TICKET_PRICE', 1500);
 define('PREMIUM_TICKET_PRICE', 2500);
+
+
+class Database
+{
+    private $conn;
+
+    // We no longer need to define $host, $db_name, etc., as private properties
+    // because we are using the constants defined above.
+
+    public function __construct()
+    {
+        // Removed: $this->config = require 'db_config.php';
+        // Use the defined constants for configuration
+    }
+
+    /**
+     * Get database connection
+     * @return PDO|null The PDO connection object or null on failure.
+     */
+    public function getConnection()
+    {
+        $this->conn = null;
+
+        try {
+            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+            
+            $this->conn = new PDO(
+                $dsn,
+                DB_USER,
+                DB_PASS
+            );
+            
+            // Set attributes for proper error handling and default fetch mode
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+        } catch (PDOException $exception) {
+            // In a production environment, log the error and hide the sensitive details.
+            error_log("Database Connection Error: " . $exception->getMessage());
+            die("A database connection error occurred. Please try again later.");
+        }
+
+        return $this->conn;
+    }
+
+    /**
+     * Close database connection
+     */
+    public function closeConnection()
+    {
+        // Setting the connection to null closes it.
+        $this->conn = null;
+    }
+}

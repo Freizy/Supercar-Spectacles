@@ -3,7 +3,7 @@
 session_start();
 require_once '../config/database.php';
 
-// Simple authentication check
+// Simple authentication check 
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     header('Location: login.php');
     exit();
